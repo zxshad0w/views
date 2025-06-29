@@ -25,7 +25,7 @@
       move to calc(250%/4) var(--z) var(--d),
       move to calc(350%/4) var(--x) var(--d)
     );
-  animation: l 2s infinite;
+  animation: l 0.1s infinite;
 }
 @keyframes l {
   0%, 10% { --x: 60%; --y: 60%; --z: 60%; }
