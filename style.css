@@ -1,0 +1,46 @@
+@property --x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 60%; 
+}
+@property --y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 60%; 
+}
+@property --z {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 60%; 
+}
+.loader {
+  height: 170px;
+  aspect-ratio: 3;
+  background: #FF0000;
+  --d: ,arc by 0 -57% of 100px, arc by 0 57% of 100px;
+  clip-path: 
+    shape(
+      from    calc( 50%/4) var(--x) var(--d),
+      move to calc(150%/4) var(--y) var(--d),
+      move to calc(250%/4) var(--z) var(--d),
+      move to calc(350%/4) var(--x) var(--d)
+    );
+  animation: l 2s infinite;
+}
+@keyframes l {
+  0%, 10% { --x: 60%; --y: 60%; --z: 60%; }
+  25% { --x: 100%; --y: 60%; --z: 60%; } /* запуск первого объекта */
+50% { --x: 100%; --y: 80%; --z: 60%; } /* запуск второго объекта */
+  75% { --x: 100%; --y: 80%; --z: 80%; } /* запуск третьего объекта */
+  100% { --x: 60%; --y: 80%; --z: 80%; }
+  
+  
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #80A6FF;
+}
